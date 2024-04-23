@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +21,10 @@ namespace MyWebAPINet5.Data
         public int? MaLoai { get; set; }
         [ForeignKey("MaLoai")]
         public LoaiHang Loai { get; set; }
-
+        public ICollection<DonHangChiTiet> DonHangChiTiets { set; get; }
+        public HangHoa()
+        {
+            DonHangChiTiets = new HashSet<DonHangChiTiet>();
+        }
     }
 }
