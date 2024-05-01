@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MyWebAPINet5.Data;
+using MyWebAPINet5.Services;
 
 namespace MyWebAPINet5
 {
@@ -27,6 +28,7 @@ namespace MyWebAPINet5
             {
                 option.UseSqlServer(Configuration.GetConnectionString("MyDB"));
             });
+            services.AddScoped<ILoaiHangRepository, LoaiHangRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyWebAPINet5", Version = "v1" });

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebAPINet5.Data
@@ -10,5 +11,7 @@ namespace MyWebAPINet5.Data
         public int MaLoai { get; set; }
         [Required]
         public string TenLoai { get; set; }
+
+        public virtual ICollection<HangHoa> HangHoas { get; set; }
     }
 }
